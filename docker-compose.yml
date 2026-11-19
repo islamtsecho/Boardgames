@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      DB_PATH: /data/games.db
+    volumes:
+      - boardgames-data:/data
+    ports:
+      - "${PORT:-8080}:8000"
+
+volumes:
+  boardgames-data:
